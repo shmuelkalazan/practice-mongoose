@@ -20,11 +20,11 @@ const userSchema = new Schema<IUser>({
     user_name: {
         type: String,
         required: [true, "User name is required"],
-        minlength: [5, "Name is too short, please enter at least 5 characters"]
+        minlength: [3, "Name is too short, please enter at least 3 characters"]
     },
     todos: {
         type: [todoSchema],
-        required: [true, "Please specify at least one task"]
+        default:[]
     }
 },{timestamps:true});
 

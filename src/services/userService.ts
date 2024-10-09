@@ -1,20 +1,16 @@
-// const bcrypt = require("bcrypt")
-// const { UserModel } = require("../models/userModel")
+import { UserModel } from "../models/userModel"
 
-// const createUser = async (user) =>{
-//     try {
-//         const {user_name , password ,role ,area ,units} = user
-//         // const hashedPassword = await bcrypt.hash(password,10)
-//         const dbUser = new UserModel({
-//             user_name ,password: hashedPassword ,role ,area ,units
-//         })
-//         await dbUser.save()
-//     } catch (err) {
-//         console.log(err)
-//         throw err
-//     }
-// }
+const createUser = async (user:any) =>{
+    try {
+        const dbUser = new UserModel({user_name:user.user_name})
+        await dbUser.save()
+        console.log("user saved successfully")
+    } catch (err) {
+        console.log(err)
+        throw err
+    }
+}
 
-// module.exports = {
-//     createUser,
-// }
+export {
+    createUser,
+}
